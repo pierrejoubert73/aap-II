@@ -42,7 +42,7 @@ The ID for **PLEX** is `44992`.
 
 ---
 
-## Step 2: Get Market History
+## Step 2: Get Market History (Past Rates)
 
 To analyze trends (past rates), use the history endpoint. Market data is separated by **Region**. The most popular trade hub is **Jita**, located in the **The Forge** region.
 
@@ -80,7 +80,7 @@ curl -X GET "https://esi.evetech.net/latest/markets/10000002/history/?type_id=44
 
 ---
 
-## Step 3: Get Current Market Orders
+## Step 3: Get Current Market Orders (Current Rates)
 
 To execute trades or see the current "Sell" and "Buy" walls, fetch the active orders.
 
@@ -167,3 +167,9 @@ if __name__ == "__main__":
 | PLEX | `44992` |
 | Tritanium | `34` |
 | Veldspar | `1230` |
+
+## Rate Limiting and Etiquette
+
+The EVE Online API (ESI) has a rate limit.
+*   **Error Limit:** If you generate too many errors (HTTP 4xx/5xx), you will be temporarily banned.
+*   **Cache:** Respect the `Expires` header. Data like market history updates only once a day. Market orders update every 5 minutes. Do not spam requests for data that hasn't changed.
